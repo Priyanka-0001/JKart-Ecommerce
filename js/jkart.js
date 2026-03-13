@@ -50,7 +50,7 @@ function addInfo(e) {
 
     if (exists) {
         alert("User already exists! Please login.");
-        window.location.href = "./login.html";
+        window.location.href = "../html/login.html";
         return; // stop registration
     }
 
@@ -65,7 +65,7 @@ function addInfo(e) {
     alert("Registered Successfully!");
 
     // redirect to login
-    window.location.href = "./login.html";
+    window.location.href = "../html/login.html";
 }
 
 
@@ -91,7 +91,7 @@ function CheckLogin(e) {
     localStorage.setItem("loggedInUser", JSON.stringify(isPresent));
 
     alert("Login Successful!");
-    window.location.href = "./index.html";
+    window.location.href = "../html/index.html";
     } else {
     console.log("Login failed");
     alert("Login Failed! Please check details.");
@@ -131,12 +131,12 @@ async function fetchData() {
             let currentUser = JSON.parse(localStorage.getItem("loggedInUser"));
             if(!currentUser){
                 alert("Please login to buy products");
-                window.location.href="./login.html";
+                window.location.href="../html/login.html";
                 return;
             }
             addToCart(product); // add product
             alert("Product added. Redirecting to cart...");
-            window.location.href="./cart.html"; // go to cart
+            window.location.href="../html/cart.html"; // go to cart
             };
         }
         if (addBtn) {
@@ -146,7 +146,7 @@ async function fetchData() {
                 alert("Please login to add items to cart");
                 let confirmLogin = confirm("Login is required. Do you want to login now?");
                 if(confirmLogin){
-                    window.location.href = "./login.html";
+                    window.location.href = "../html/login.html";
                 }
                 return;
             }
@@ -376,7 +376,7 @@ if(user){
         logoutBtn.style.display = "block";
     }
 
-    // ⭐ Show username in navbar
+    // Show username in navbar
     let nameBox = document.createElement("span");
     nameBox.innerText = "Hi " + user.name;
 
@@ -402,7 +402,7 @@ localStorage.removeItem("loggedInUser");
 
 alert("Logged out successfully");
 
-window.location.href="./index.html";
+window.location.href="../html/index.html";
 
 }
 
@@ -424,7 +424,7 @@ function checkout(){
 
     updateCartCount();
 
-    window.location.href="./index.html";
+    window.location.href="../html/index.html";
 }
 // ===================== Debug =====================
 console.log("JKart.js Loaded");
