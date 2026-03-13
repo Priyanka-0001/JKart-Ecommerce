@@ -91,7 +91,7 @@ function CheckLogin(e) {
     localStorage.setItem("loggedInUser", JSON.stringify(isPresent));
 
     alert("Login Successful!");
-    window.location.href = "../html/index.html";
+    window.location.href = "./index.html";
     } else {
     console.log("Login failed");
     alert("Login Failed! Please check details.");
@@ -402,7 +402,7 @@ localStorage.removeItem("loggedInUser");
 
 alert("Logged out successfully");
 
-window.location.href="../html/index.html";
+window.location.href="./index.html";
 
 }
 
@@ -424,7 +424,7 @@ function checkout(){
 
     updateCartCount();
 
-    window.location.href="../html/index.html";
+    window.location.href="./index.html";
 }
 // ===================== Debug =====================
 console.log("JKart.js Loaded");
