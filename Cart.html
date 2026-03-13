@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Cart</title>
-    <link rel="stylesheet" href="./Cart.css">
+<meta charset="UTF-8">
+<title>My Cart</title>
+<link rel="stylesheet" href="./Cart.css">
 </head>
+
 <body>
 
-    <h2>My Cart</h2>
+<div class="cartPage">
 
-    <!-- Cart items will be shown here -->
+    <h2>🛒 My Cart</h2>
+
     <div class="cartContainer"></div>
 
-    <script src="./JKart.js"></script>
+    <div class="checkoutBox">
+        <h3 id="grandTotal"></h3>
+        <button onclick="checkout()">Proceed to Checkout</button>
+    </div>
+
+</div>
+
+<script src="./JKart.js"></script>
+
 </body>
 </html>

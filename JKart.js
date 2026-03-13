@@ -4,7 +4,7 @@ let usersInfo = JSON.parse(localStorage.getItem("usersInfo")) || [
     {
         name: "Riya",
         phone: "1234567890",
-        email: "r@gmail.c0m",
+        email: "riya@gmail.c0m",
         dob: "2003-11-19",
         password: "1234",
         image: "https://cdn.pixabay.com/photo/2025/09/30/21/24/waterfall-9865189_1280.jpg"
@@ -12,7 +12,7 @@ let usersInfo = JSON.parse(localStorage.getItem("usersInfo")) || [
     {
         name: "Kush",
         phone: "1234767890",
-        email: "k@gmail.c0m",
+        email: "kush@gmail.c0m",
         dob: "2025-12-04",
         password: "5678",
         image: "https://cdn.pixabay.com/photo/2025/09/30/21/24/waterfall-9865189_1280.jpg"
@@ -20,7 +20,7 @@ let usersInfo = JSON.parse(localStorage.getItem("usersInfo")) || [
     {
         name: "lavanya",
         phone: "1234567980",
-        email: "l@gmail.c0m",
+        email: "lavanya@gmail.c0m",
         dob: "2025-10-04",
         password: "7890",
         image: "https://cdn.pixabay.com/photo/2025/09/30/21/24/waterfall-9865189_1280.jpg"
@@ -81,21 +81,21 @@ function CheckLogin(e) {
     console.log("Stored users:", storedUsers);
 
     // check credentials
-    let isPresent = storedUsers.filter(
-        user => email === user.email && pwd === user.password
-    );
+    let isPresent = storedUsers.find(
+    user => email === user.email && pwd === user.password);
+    
+    if (isPresent) {
+    console.log("Login successful:", isPresent);
 
-    if (isPresent.length > 0) {
-        console.log("Login successful:", isPresent[0]);
-        //Store logged-In User
-        localStorage.setItem("loggedInUser", JSON.stringify(isPresent[0]));
-        
-        alert("Login Successful!");
-        window.location.href = "./homepage.html";
+    // store logged in user
+    localStorage.setItem("loggedInUser", JSON.stringify(isPresent));
+
+    alert("Login Successful!");
+    window.location.href = "./index.html";
     } else {
-        console.log("Login failed");
-        alert("Login Failed! Please check details.");
-    }
+    console.log("Login failed");
+    alert("Login Failed! Please check details.");
+    } 
 }
 
 
@@ -125,14 +125,38 @@ async function fetchData() {
         // ===================== Add To Cart Button =====================
         let addBtn = card.querySelector(".btn-warning");
 
-        if (addBtn) {
-            addBtn.onclick = function () {
-                addToCart(product);
-                renderQtyControls(addBtn, product);
-        };
+        let buyBtn = card.querySelector(".btn-outline-danger");
+        if(buyBtn){
+        buyBtn.onclick = function(){
+            let currentUser = JSON.parse(localStorage.getItem("loggedInUser"));
+            if(!currentUser){
+                alert("Please login to buy products");
+                window.location.href="./login.html";
+                return;
+            }
+            addToCart(product); // add product
+            alert("Product added. Redirecting to cart...");
+            window.location.href="./cart.html"; // go to cart
+            };
         }
-    }
+        if (addBtn) {
+           addBtn.onclick = function () {
+            let currentUser = JSON.parse(localStorage.getItem("loggedInUser"));
+            if(!currentUser){
+                alert("Please login to add items to cart");
+                let confirmLogin = confirm("Login is required. Do you want to login now?");
+                if(confirmLogin){
+                    window.location.href = "./login.html";
+                }
+                return;
+            }
+            addToCart(product);
+            renderQtyControls(addBtn, product);
+        };
+    };
 }
+}
+
 
 // ===================== Add To Cart Logic =====================
 function addToCart(product) {
@@ -158,7 +182,7 @@ function addToCart(product) {
     localStorage.setItem("cartItems", JSON.stringify(cart));
     updateCartCount();
     console.log("Product added to cart:", product);
-    alert("Product added to cart!");
+    // alert("Product added to cart!");
 }
 
 
@@ -203,7 +227,7 @@ if (document.querySelectorAll(".card").length > 0) {
     console.log("Homepage detected, fetching products...");  
     fetchData();  
 
-    // ✅ Show current cart count on page load
+    // Show current cart count on page load
     updateCartCount();
 }
 
@@ -218,7 +242,16 @@ function showCart() {
     cartContainer.innerHTML = ""; // clear old content
 
     if (cartData.length === 0) {
-        cartContainer.innerHTML = "<h3>Your cart is empty</h3>";
+    cartContainer.innerHTML = `
+        <div class="emptyCart">
+            <img src="https://cdn-icons-png.flaticon.com/512/11329/11329060.png" width="150">
+            <h2>Your Cart is Empty</h2>
+            <p>Add some amazing products to your cart!</p>
+            <a href="./index.html">
+                <button class="shopBtn">Continue Shopping</button>
+            </a>
+        </div>
+        `;
         return;
     }
 
@@ -255,9 +288,10 @@ function showCart() {
     }
 
     // show grand total
-    let totalDiv = document.createElement("h2");
-    totalDiv.innerText = "Grand Total: ₹" + grandTotal;
-    cartContainer.appendChild(totalDiv);
+    let totalBox = document.getElementById("grandTotal");
+    if(totalBox){
+        totalBox.innerText = "Grand Total: ₹" + grandTotal;
+    }
 }
 
 
@@ -326,6 +360,71 @@ function refreshHomeQty(id) {
     qtyBox.querySelector("span").innerText = item.quantity;
 }
 
+// ========= Check logged in user =========
+let user = JSON.parse(localStorage.getItem("loggedInUser"));
 
+let auth = document.getElementById("authButtons");
+let logoutBtn = document.getElementById("logoutBtn");
+if(user){
+    // Hide login/register
+    if(auth){
+        auth.style.display = "none";
+    }
+
+    // Show logout
+    if(logoutBtn){
+        logoutBtn.style.display = "block";
+    }
+
+    // ⭐ Show username in navbar
+    let nameBox = document.createElement("span");
+    nameBox.innerText = "Hi " + user.name;
+
+    let navRight = document.querySelector(".navRight");
+    if(navRight){
+        navRight.prepend(nameBox);
+    }
+
+}else{
+
+    if(logoutBtn){
+        logoutBtn.style.display = "none";
+    }
+
+}
+
+// ===============Logout Button=======
+if(logoutBtn){
+
+logoutBtn.onclick = function(){
+
+localStorage.removeItem("loggedInUser");
+
+alert("Logged out successfully");
+
+window.location.href="./index.html";
+
+}
+
+}
+
+// ============
+function checkout(){
+
+    let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    if(cart.length === 0){
+        alert("Cart is empty!");
+        return;
+    }
+
+    alert("Order placed successfully! 🎉");
+
+    localStorage.removeItem("cartItems");
+
+    updateCartCount();
+
+    window.location.href="./index.html";
+}
 // ===================== Debug =====================
 console.log("JKart.js Loaded");

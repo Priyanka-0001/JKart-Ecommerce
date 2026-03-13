@@ -7,7 +7,21 @@
     <link rel="stylesheet" href="./Homepage.css">
 </head>
 <body>
-    <a href="Cart.html" id="cartBtn">Go to Cart (<span id="cartCount">0</span>)</a>
+    <div class="navbar">
+        <h2 class="logo">JKart</h2>
+        <div class="navRight">
+            <a href="./index.html">Home</a>
+            <a href="./cart.html" class="cartBtn"> 🛒 Cart <span id="cartCount">0</span></a>
+            
+            <div id="authButtons">
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
+            </div>
+            
+            <button id="logoutBtn">Logout</button>
+        </div>
+    </div>
+    
     <div class="homepage">  
         <!-- ===================== 30 PRODUCT CARDS ===================== -->
          
@@ -467,25 +481,5 @@
     <script src="./JKart.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

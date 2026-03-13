@@ -128,3 +128,61 @@ button {
     font-size: 18px;
     cursor: pointer;
 }
+
+#authButtons a{
+margin-right:10px;
+text-decoration:none;
+font-weight:bold;
+}
+
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    background:#222;
+    color:white;
+}
+
+.logo{
+    font-size:24px;
+}
+
+.navRight{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.navRight a{
+    text-decoration:none;
+    color:white;
+    font-size:16px;
+}
+
+.cartBtn{
+    background:#ff9800;
+    padding:6px 12px;
+    border-radius:5px;
+}
+
+#cartCount{
+    background:red;
+    padding:2px 6px;
+    border-radius:50%;
+}
+
+#logoutBtn{
+    padding:6px 12px;
+    border:none;
+    background:#f44336;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.navRight span{
+    color:#fff;
+    font-weight:bold;
+}

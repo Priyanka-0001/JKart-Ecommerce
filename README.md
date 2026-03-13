@@ -1,40 +1,63 @@
-# Project Title : JKart – JavaScript Based E-Commerce Application
+# JKart – JavaScript E-Commerce Application
 
-## Description 
-JKart is a frontend-only e-commerce web application built using HTML, CSS, and JavaScript.
-It allows users to register, login, browse products, add items to cart, update quantities, and view cart details.
-All data is stored and managed using browser localStorage, without any backend or database.
-This project focuses on core JavaScript concepts, DOM manipulation, event handling, and application flow.
+## Overview
+JKart is a frontend-only e-commerce web application built using HTML, CSS, and JavaScript.  
+The application allows users to register, login, browse products, add items to a cart, and manage their cart.
 
+The project focuses on practicing **core JavaScript concepts such as DOM manipulation, event handling, API integration, and localStorage data management**.
+
+---
+
+## Live Demo
+https://priyanka-0001.github.io/JKart-Ecommerce/
+
+---
 
 ## Features
-- User Registration with duplicate email check
-- User Login with credential validation
-- Persistent user and cart data using localStorage
-- Product listing fetched from external API
-- Add to Cart with quantity control (+ / −)
-- Cart count update in real-time
-- Remove items from cart
-- Grand total calculation in cart
-- Separate pages for Login, Register, Home, and Cart
 
+User Authentication
+- User registration
+- Duplicate email validation
+- Login with credential verification
+- Logout functionality
+
+Product System
+- Product data fetched from external API
+- Dynamic product display
+- Add to Cart functionality
+
+Cart System
+- Quantity increase/decrease
+- Remove product from cart
+- Grand total calculation
+- Empty cart message
+
+State Management
+- Data persistence using browser localStorage
+- Cart count updates in real time
+- Logged-in user tracking
+
+---
 
 ## Technologies Used
-- HTML5 – Structure
-- CSS3 – Styling & Responsive layout
-- JavaScript (ES6) – Logic & Interactivity
-- Fetch API – Product data retrieval
-- Browser localStorage – Data persistence
 
+HTML5 – Page structure  
+CSS3 – Styling and layout  
+JavaScript (ES6) – Application logic  
+Fetch API – Retrieving product data  
+localStorage – Client-side data persistence
+
+---
 
 ## Project Structure
 JKart/
 │
-├── Login.html
-├── Register.html
-├── Homepage.html
-├── Cart.html
+├── index.html
+├── login.html
+├── register.html
+├── cart.html
 │
+├── Homepage.css
 ├── Login.css
 ├── Register.css
 ├── Cart.css
@@ -43,53 +66,55 @@ JKart/
 │
 └── README.md
 
+---
 
 ## Application Flow
-1. Registration
-    - User enters details
-    - Email is checked for duplicates
-    - User data saved in localStorage
-    - Redirects to Login page
-2. Login
-    - Credentials validated from stored users
-    - Logged-in user saved in localStorage
-    - Redirects to Homepage
-3. Homepage
-    - Products fetched from dummyjson API
-    - Products displayed dynamically
-    - Users can add products to cart
-    - Quantity buttons appear after adding
-4. Cart Page
-    - Cart items loaded from localStorage
-    - Quantity increase/decrease supported
-    - Remove product option
-    - Grand total displayed
 
+1. User Registration
+    → Enter user details  
+    → Email duplicate check  
+    → Save user data in localStorage  
 
-## How to Run the Project
-1. Download or clone the project
-2. Open Register.html or Login.html in browser
-3. Register a new user
-4. Login and browse products
-5. Add products to cart and manage quantities
-- No server or backend setup required
+2. User Login
+    → Validate credentials  
+    → Store logged-in user in localStorage  
+    → Redirect to homepage  
 
-## Usage
-Visit `http://127.0.0.1:5500/Login.html` in your browser to use the application.
+3. Product Listing
+    → Products fetched from DummyJSON API  
+    → Displayed on homepage  
 
-## Key Concepts Implemented
-- DOM Manipulation
-- Event Handling
-- Array methods (find, filter, some)
-- JSON.stringify() & JSON.parse()
-- LocalStorage CRUD operations
-- Conditional rendering
+4. Cart System
+    → Add items to cart  
+    → Update quantities  
+    → Remove items  
+    → Calculate grand total  
+
+5. Checkout
+    → Order confirmation  
+    → Cart cleared  
+
+---
+
+## Key JavaScript Concepts Used
+
+- DOM Manipulation  
+- Event Handling  
+- Array methods (`find`, `filter`, `some`)  
+- JSON.parse() and JSON.stringify()  
+- localStorage CRUD operations  
+- Conditional rendering  
+- API fetching  
 - Page-based logic execution
 
+---
 
-## Future Enhancements
-- Logout functionality
-- User-specific cart handling
-- Backend integration
-- Order history
-- Improved UI animations
+## Future Improvements
+
+- Backend integration (Node.js / Express)  
+- User-specific cart system  
+- Order history feature  
+- Payment integration  
+- Improved UI animations  
+
+---
