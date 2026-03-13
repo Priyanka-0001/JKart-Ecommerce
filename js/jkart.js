@@ -424,7 +424,11 @@ function checkout(){
 
     updateCartCount();
 
-    window.location.href="../index.html";
+   // Get the base URL dynamically
+    let baseURL = window.location.origin + window.location.pathname.split('/')[1];
+
+    // Redirect properly
+    window.location.href = baseURL + "/index.html";
 }
 // ===================== Debug =====================
 console.log("JKart.js Loaded");
