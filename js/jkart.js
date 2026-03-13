@@ -131,7 +131,7 @@ async function fetchData() {
             let currentUser = JSON.parse(localStorage.getItem("loggedInUser"));
             if(!currentUser){
                 alert("Please login to buy products");
-                window.location.href=".html/login.html";
+                window.location.href="./html/login.html";
                 return;
             }
             addToCart(product); // add product
