@@ -92,9 +92,11 @@ localStorage – Client-side data persistence
 JKart/
 │
 ├── index.html
-├── login.html
-├── register.html
-├── cart.html
+│
+├── html/
+│   ├── login.html
+│   │── register.html
+│   └── cart.html
 │
 ├── css/
 │   ├── homepage.css
