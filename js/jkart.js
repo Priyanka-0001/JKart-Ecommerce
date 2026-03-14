@@ -247,7 +247,7 @@ function showCart() {
             <img src="https://cdn-icons-png.flaticon.com/512/11329/11329060.png" width="150">
             <h2>Your Cart is Empty</h2>
             <p>Add some amazing products to your cart!</p>
-            <a href="../index.html">
+            <a href="./index.html">
                 <button class="shopBtn">Continue Shopping</button>
             </a>
         </div>
@@ -424,8 +424,7 @@ function checkout(){
 
     updateCartCount();
 
-    // Redirect properly
-    window.location.href = "/index.html";
+    window.location.href = "./index.html";
 }
 // ===================== Debug =====================
 console.log("JKart.js Loaded");
