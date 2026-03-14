@@ -106,11 +106,12 @@ JKart/
 │   └── jkart.js
 │
 ├── assets/
-│    ├── cart.png
+│   ├── cart.png
 │   ├── flowchart.png
 │   ├── homepage.png
 │   ├── login.png
-│   └── register.png
+│   ├── register.png
+│   └── workflow.png
 │
 └── README.md
     
@@ -145,19 +146,19 @@ JKart/
 ## Application Flow
 
 1. User Registration
-    → Enter user details → Email duplicate check → Save user data in localStorage  
+    → User enters details → System checks for duplicate email → User data saved in localStorage.
 
 2. User Login
-    → Validate credentials → Store logged-in user in localStorage → Redirect to homepage  
+    → Credentials are validated → Logged-in user stored in localStorage → User redirected to homepage.
 
 3. Product Listing
-    → Products fetched from DummyJSON API → Displayed on homepage  
+    → Products are fetched from the DummyJSON API → Products displayed dynamically on the homepage.
 
 4. Cart System
-    → Add items to cart → Update quantities → Remove items → Calculate grand total  
+    → User adds products to cart → Cart items stored in localStorage → User can update quantity or remove items → Grand total calculated automatically.
 
 5. Checkout
-    → Order confirmation → Cart cleared  
+    → User confirms order → Cart is cleared → Process completed.
 
 ---
 

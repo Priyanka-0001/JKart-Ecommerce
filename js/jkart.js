@@ -4,7 +4,7 @@ let usersInfo = JSON.parse(localStorage.getItem("usersInfo")) || [
     {
         name: "Riya",
         phone: "1234567890",
-        email: "riya@gmail.c0m",
+        email: "riya@gmail.com",
         dob: "2003-11-19",
         password: "1234",
         image: "https://cdn.pixabay.com/photo/2025/09/30/21/24/waterfall-9865189_1280.jpg"
@@ -12,7 +12,7 @@ let usersInfo = JSON.parse(localStorage.getItem("usersInfo")) || [
     {
         name: "Kush",
         phone: "1234767890",
-        email: "kush@gmail.c0m",
+        email: "kush@gmail.com",
         dob: "2025-12-04",
         password: "5678",
         image: "https://cdn.pixabay.com/photo/2025/09/30/21/24/waterfall-9865189_1280.jpg"
@@ -20,7 +20,7 @@ let usersInfo = JSON.parse(localStorage.getItem("usersInfo")) || [
     {
         name: "lavanya",
         phone: "1234567980",
-        email: "lavanya@gmail.c0m",
+        email: "lavanya@gmail.com",
         dob: "2025-10-04",
         password: "7890",
         image: "https://cdn.pixabay.com/photo/2025/09/30/21/24/waterfall-9865189_1280.jpg"
