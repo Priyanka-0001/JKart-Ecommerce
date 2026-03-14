@@ -41,7 +41,7 @@ https://priyanka-0001.github.io/JKart-Ecommerce/
 ## Features
 
 User Authentication
-- User registration with duplicate email check
+- User registration 
 - Duplicate email validation
 - Login with credential verification
 - Logout functionality
