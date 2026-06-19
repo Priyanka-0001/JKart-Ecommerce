@@ -88,7 +88,7 @@ localStorage – Client-side data persistence
 ---
 
 ## Project Structure
-
+```
 JKart/
 │
 ├── index.html
@@ -114,7 +114,7 @@ JKart/
 │   └── workflow.png
 │
 └── README.md
-    
+```
 ---
 
 ## Installation/Setup
